@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+    <xacro:macro name="camera_xacro" params="length xyz">
+        <!--机器人的camera部件-->
+        <link name="camera_link">
+            <visual>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+
+                <geometry>
+                    <box size="${length} ${length} ${length}"/>
+                </geometry>
+
+                <material name="black">
+                    <color rgba="0.0 0.0 0.0 0.5"/>
+                </material>
+
+            </visual>
+        </link>
+        <!--机器人的关节-->
+        <joint name="camera_joint" type="fixed">
+            <parent link="base_link"/>
+            <child link="camera_link"/>
+            <origin xyz="${xyz}" rpy="0.0 0.0 0.0"/>                
+        </joint>
+    </xacro:macro>
+</robot>
